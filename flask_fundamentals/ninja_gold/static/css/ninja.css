@@ -1,0 +1,117 @@
+*{
+	outline: 0;
+	padding:0;
+	margin: 0;
+	border: 0;
+}
+body {
+	height: 600px;
+	background-color: gray;
+}
+.location1 {
+	width: 200px;
+	height: 250px;
+	margin-top: 40px;
+	background-color: red;
+	margin-left: 50px;
+	border-style: solid;
+	border-width: 3px;
+	display: inline-block;
+
+}
+
+#farm {
+	background-color: red;
+	text-align: center;
+}
+#farm img {
+	width: 100px;
+	height: 100px;
+}
+.button  {
+	color: white;
+	height: 30px;
+	width: 100px;
+	background-color: black;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+.location2 {
+	width: 200px;
+	height: 250px;
+	background-color: brown;
+	margin-left: 50px;
+	display: inline-block;
+	border-style: solid;
+	border-width: 3px;
+}
+#cave {
+	background-color: brown;
+	text-align: center;
+}
+#cave img {
+	width: 100px;
+	height: 100px;
+}
+.location3 {
+	width: 200px;
+	height: 250px;
+	background-color: pink;
+	margin-left: 50px;
+	display: inline-block;
+	border-style: solid;
+	border-width: 3px;
+}
+#house {
+	background-color: pink;
+	text-align: center;
+}
+#house img {
+	width: 100px;
+	height: 100px;
+}
+.location4 {
+	width: 200px;
+	height: 250px;
+	background-color: gold;
+	margin-left: 50px;
+	display: inline-block;
+	border-style: solid;
+	border-width: 3px;
+}
+#casino {
+	background-color: gold;
+	text-align: center;
+}
+#casino img {
+	width: 100px;
+	height: 100px;
+}
+#activity {
+	width: 800px;
+	height: 150px;
+	margin-left: 30px;
+	background-color: white;
+	border-style: solid;
+	border-width: 3px;
+	margin-bottom-bottom: 50px;
+
+}
+#activity ul {
+	list-style-type: none;
+}
+h3 {
+	margin-left: 30px;
+}
+#play_again {
+	margin-left: 500px;
+	margin-top: 50px;
+
+}
+.button1 {
+	background-color: gold;
+	height: 30px;
+	width: 70px;
+	border-radius: 8px;
+
+}

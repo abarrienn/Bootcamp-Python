@@ -1,0 +1,26 @@
+*{
+	outline: 0;
+	padding:0;
+	margin: 0;
+	border: 0;
+}
+
+body {
+	background-color: pink;
+	padding-top: 100px;
+	text-align: center;
+}
+input {
+	background-color: black;
+	color: white;
+	border-radius: 8px;
+	width:120px;
+	height: 30px;
+	margin-top: 20px;
+}
+img {
+	color: pink;
+	background-color: pink;
+	width: 100px;
+	height: 100px;
+}

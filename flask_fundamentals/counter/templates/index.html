@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Count</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pretty.css') }}"> 
+   </head>
+   <body>
+   		<h1>COUNT</h1>
+   		<h2>{{session['count']}}</h2>
+		
+	<button type="button" onClick="window.location.reload();">Play Again!</button><!--reloads page-->
+
+
+
+   </body>
+</html>

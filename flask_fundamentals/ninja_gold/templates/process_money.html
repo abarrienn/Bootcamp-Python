@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Ninja Gold</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ninja.css') }}">
+      <!--(<img src="{{ url_for('static', filename='img/my_img.png') }}">-->
+   </head>
+   <body>
+      <div id="total_box">
+         <h1>Total Amount of Gold: {{ amt_from_form }}</h1>
+      </div>
+   	<div class="location1">
+   		<div id="farm">
+   			<h2>Farm</h2>
+   			<h3>(earns 10-20 golds)</h3>
+   			<br>
+   			<img src="{{ url_for('static', filename='img/barn.png') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/" method= "POST">
+   				<input type="Submit" class="button" name="Submit">
+   			</form>
+   		</div>
+   	</div>
+   	<div class="location2">
+   		<div id="cave">
+   			<h2>Cave</h2>
+   			<h3>(earns 5-10 golds)</h3>
+   			<br>
+   			<img src="{{ url_for('static', filename='img/cave.png') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/" method= "POST">
+   				<input type="Submit" class="button" name="Submit">
+   			</form>
+   		</div>
+   	</div>
+   	<div class="location3">
+   		<div id="house">
+   			<h2>House</h2>
+   			<h3>(earns 2-5 golds)</h3>
+   			
+   			<br>
+   			<img src="{{ url_for('static', filename='img/house.jfif') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/" method= "POST">
+   				<input type="Submit" class="button" name="Submit">
+   			</form>
+   		</div>
+   	</div>
+   	<div class="location4">
+   		<div id="casino">
+   			<h2>Casino</h2>
+   			<h3>(earns 0-50 golds)</h3>
+   			<br>
+   			<img src="{{ url_for('static', filename='img/casino.jfif') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/" method= "POST">
+   				<input type="Submit" class="button" name="Submit">
+   			</form>
+   		</div>
+   	</div><br><br><br>
+   	<h3>Activity:</h3>
+   	<div id="activity">
+   		<!--<ul><li>{{session['message']}}</li></ul>-->
+   	</div>
+      <div id="play_again">
+         <form action="/" method= "POST">
+               <input type="Submit" class="button1" name="Submit" value="Play Again!">
+         </form>
+      </div>
+   </body>
+</html>

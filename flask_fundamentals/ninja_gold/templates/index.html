@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Ninja Gold</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ninja.css') }}">
+      <!--(<img src="{{ url_for('static', filename='img/my_img.png') }}">-->
+   </head>
+   <body>
+   	<div id="total_box">
+   		<h1>Total Amount of Gold: {{session['total_amt']}}</h1>
+   	</div>
+   	<div class="location1">
+   		<div id="farm">
+   			<h2>Farm</h2>
+   			<h3>(earns 10-20 gold)</h3>
+   			<br>
+   			<img src="{{ url_for('static', filename='img/barn.png') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/process_money" method= "POST">
+   				<input type="hidden" name="location" value="farm" >
+   				<input type="Submit" class="button" name="Submit" value="Find Gold!">
+   			</form>
+   		</div>
+   	</div>
+   	<div class="location2">
+   		<div id="cave">
+   			<h2>Cave</h2>
+   			<h3>(earns 5-10 gold)</h3>
+   			<br>
+   			<img src="{{ url_for('static', filename='img/cave.png') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/process_money" method= "POST">
+   				<input type="hidden" name="location" value="cave" >
+   				<input type="Submit" class="button" name="Submit" value="Find Gold!">
+   			</form>
+   		</div>
+   	</div>
+   	<div class="location3">
+   		<div id="house">
+   			<h2>House</h2>
+   			<h3>(earns 2-5 gold)</h3>
+   			<br>
+   			<img src="{{ url_for('static', filename='img/house.jfif') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/process_money" method= "POST">
+   				<input type="hidden" name="location" value="house" >
+   				<input type="Submit" class="button" name="Submit" value="Find Gold!">
+   			</form>
+   		</div>
+   	</div>
+   	<div class="location4">
+   		<div id="casino">
+   			<h2>Casino</h2>
+   			<h3>(earns 0-50 gold)</h3>
+   			<br>
+   			<img src="{{ url_for('static', filename='img/casino.jfif') }}">
+   			<br>
+   			<br>
+   			<br>
+   			<form action="/process_money" method= "POST">
+   				<input type="hidden" name="location" value="casino" >
+   				<input type="Submit" class="button" name="Submit" value="Find Gold!">
+   			</form>
+   		</div>
+   	</div><br><br><br>
+   	<h3>Activity:</h3>
+   	<div id="activity">
+   		<!--<ul><li>{{session['message']}}</li></ul>-->
+   	</div>
+
+   </body>
+</html>
