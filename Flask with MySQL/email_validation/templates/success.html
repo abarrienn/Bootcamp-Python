@@ -1,0 +1,16 @@
+{% with messages = get_flashed_messages() %}
+        {% if messages %} 
+          {% for message in messages %}
+            <p>{{message}}</p>  
+          {% endfor %}
+        {% endif %}
+{% endwith %}
+<h1>Email</h1>
+{% for email in emails %}
+<table>
+	<tr>
+		<td>Email:{{ email["email"] }}</td>
+		<td>Created At:{{ email["created_at"]}}</td>
+	</tr>
+</table>
+{% endfor %}

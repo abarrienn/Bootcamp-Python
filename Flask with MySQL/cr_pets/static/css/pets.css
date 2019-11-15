@@ -1,0 +1,51 @@
+*{
+	outline: 0;
+	padding:0;
+	margin: 0;
+	border: 0;
+}
+body {
+	background-color: #f2cca4;
+}
+img {
+	width: 150px; 
+	height: 150px;
+	display: inline-block;
+	background-color: #f2cca4;
+}
+h1 {
+	margin-left: 400px;
+
+}
+table {
+  font-family: arial, sans-serif;
+
+  width: 600px;
+  height: 200px;
+  margin-left: 200px;
+  
+
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+
+input {
+	height: 40px;
+	width: 75px;
+	background-color: #f2cca4;
+}
+input[type=text] {
+	width: 200px;
+}
+input[type=submit] {
+	margin-left: 100px;
+}
+form {
+	margin-top: 20px;
+	margin-left: 300px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+   		<title>My Form</title>
+   		
+   </head>
+   <body>
+   	<h2>Form</h2>
+      {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+          {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+   		<form action="/result" method= "POST">
+      <p>Name <input type="text" name="name1"></p>
+      <p>Email <input type="text" name="email"></p>
+      <p>Location <select name = "location">
+        <option value = "Select">--Please Select--</option>
+        <option value = "Dallas">Dallas</option>
+        <option value = "Seattle">Seattle</option>
+        <option value = "New York">New York</option>
+      </select></p>
+      <input type="Submit" name="Submit">
+    </form>
+
+   </body>
+</html>

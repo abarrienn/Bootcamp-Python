@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>MySQL</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pets.css') }}">
+      
+   </head>
+   <body>
+    <img src="{{ url_for('static', filename='img/cat.png') }}">
+    <img src="{{ url_for('static', filename='img/dog.png') }}">
+   	<h1>All My Pets</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Pet Name</th>
+      <th>Type</th>
+    </tr>
+    {% for one_pet in all_pets %}
+      <tr>
+    	   <td> {{one_pet["pet_id"]}}</td>
+    	   <td> {{one_pet["name"]}}</td>
+    	   <td> {{one_pet["type"]}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <h1>Add a Pet</h1>
+  <form action="/create_pet" method="POST">
+      <p>Name: <input type="text" name="pname" value=""></p>
+      <p>Type : <input type="text" name="ptype" value=""></p>
+      <input type="submit" value="Add Pet">
+  </form>

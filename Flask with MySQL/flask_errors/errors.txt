@@ -1,0 +1,28 @@
+
+
+
+1.	(py3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\flask\flask_mysql\first_flask_mysql>python server.py
+Traceback (most recent call last):
+  File "server.py", line 2, in <module>
+    from mysqlconnection import connectToMySQL    # import the function that will return an instance of a connection
+  File "C:\Users\abarr\OneDrive\Desktop\python_stack\flask\flask_mysql\first_flask_mysql\mysqlconnection.py", line 4
+    connection = pymysql.connect(host = 'localhost,
+                                                  ^
+SyntaxError: EOL while scanning string literal
+
+*******Error received because string was not closed
+
+2.	(py3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\flask\flask_mysql\first_flask_mysql>python server.py
+Traceback (most recent call last):
+  File "server.py", line 2, in <module>
+    from mysqlconnection import connectToMySQL    # import the function that will return an instance of a connection
+  File "C:\Users\abarr\OneDrive\Desktop\python_stack\flask\flask_mysql\first_flask_mysql\mysqlconnection.py", line 19
+    if query.lower().find("insert") >= 0:
+                                        ^
+SyntaxError: invalid syntax
+
+*******Error received because parentheses not closed on line 18
+
+3. AttributeError: 'NoneType' object has no attribute 'encoding'
+
+
