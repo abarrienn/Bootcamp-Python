@@ -1,0 +1,185 @@
+System check identified no issues (0 silenced).
+August 20, 2019 - 15:26:08
+Django version 1.10, using settings 'book_authors_proj.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+(djangoPy3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj>python manage.py shell
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 19:29:22) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from apps.books_authors_app.models import *
+>>> new_book = Books.objects.create(title = "C Sharp", desc = "the sharpest book of all.")
+>>> print(new_book)
+Books object
+>>> new_book = Books.objects.create(title = "Java", desc = "best mug of coffee.")
+>>> print(new_book)
+Books object
+>>> new_book = Books.objects.create(title = "Python", desc = "crazy snake.")
+>>> print(new_book)
+Books object
+>>> new_book = Books.objects.create(title = "PHP", desc = "interesting book.")
+>>> new_book = Books.objects.create(title = "Ruby", desc = "a jewel of a book.")
+>>> print(new_book)
+Books object
+>>> new_author = Authors.objects.create(first_name = "Jane", last_name = "Austen")
+>>> print(new_author)
+Authors object
+>>> new_author = Authors.objects.create(first_name = "Emily", last_name = "Dickinson")
+>>> print(new_author)
+Authors object
+>>> new_author = Authors.objects.create(first_name = "Fyodor", last_name = "Dostoevksy")
+>>> print(new_author)
+Authors object
+>>> new_author = Authors.objects.create(first_name = "William", last_name = "Shakespeare")
+>>> print(new_author)
+Authors object
+>>> new_author = Authors.objects.create(first_name = "Lau", last_name = "Tzu")
+>>> print(new_author)
+Authors object
+>>> quit()
+
+(djangoPy3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj>python mananage.py makemigrations
+python: can't open file 'mananage.py': [Errno 2] No such file or directory
+
+(djangoPy3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj>python manage.py makemigrations
+You are trying to add a non-nullable field 'notes' to authors without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> ""
+Migrations for 'books_authors_app':
+  apps\books_authors_app\migrations\0002_authors_notes.py:
+    - Add field notes to authors
+
+(djangoPy3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj>pyhton manage.py migrate
+'pyhton' is not recognized as an internal or external command,
+operable program or batch file.
+
+(djangoPy3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, books_authors_app, contenttypes, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying books_authors_app.0002_authors_notes... OK
+
+(djangoPy3Env) C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj>python manage.py shell
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 19:29:22) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> Books.objects.get(id=1).__dict__
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> from apps.books_authors_app.models import *
+>>> Books.objects.get(id=1).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x048C4610>, 'id': 1, 'title': 'C Sharp', 'desc': 'the sharpest book of all.', 'created_at': datetime.datetime(2019, 8, 20, 20, 46, 43, 490893, tzinfo=<UTC>), 'updated_at': datetime.datetime(2019, 8, 20, 20, 46, 43, 490893, tzinfo=<UTC>)}
+>>> book_update = Books.objects.get(id=1)
+>>> book_update.title = "C #"
+>>> book_update.save()
+>>> Books.objects.get(id=1)__dict__
+  File "<console>", line 1
+    Books.objects.get(id=1)__dict__
+                                  ^
+SyntaxError: invalid syntax
+>>> Books.objects.get(id=1).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x049AB9D0>, 'id': 1, 'title': 'C #', 'desc': 'the sharpest book of all.', 'created_at': datetime.datetime(2019, 8, 20, 20, 46, 43, 490893, tzinfo=<UTC>), 'updated_at': datetime.datetime(2019, 8, 21, 3, 14, 14, 699479, tzinfo=<UTC>)}
+>>> book_update = Books.objects.get(id=4)
+>>> author_update = Authors.objects.get(id=4)
+>>> author_update.first_name = "Bill"
+>>> author_update.save()
+>>> Authors.objects.get(id=4).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x049ABCF0>, 'id': 4, 'first_name': 'Bill', 'last_name': 'Shakespeare', 'notes': '', 'created_at': datetime.datetime(2019, 8, 20, 21, 2, 4, 98524, tzinfo=<UTC>), 'updated_at': datetime.datetime(2019, 8, 21, 3, 19, 33, 652178, tzinfo=<UTC>)}
+>>> this_author = Authors.objects.get(id=1)
+>>> this_book = Books.objects.get(id=1)
+>>> this_author.books.add(this_book)
+>>> select_author.save()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'select_author' is not defined
+>>> this_author.save()
+>>> Authors.objects.get(id=1).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x0140A410>, 'id': 1, 'first_name': 'Jane', 'last_name': 'Austen', 'notes': '', 'created_at': datetime.datetime(2019, 8, 20, 20, 59, 42, 951647, tzinfo=<UTC>), 'updated_at': datetime.datetime(2019, 8, 21, 3, 36, 21, 845979, tzinfo=<UTC>)}
+>>> this_author = Authors.objects.get(id=1)
+>>> this_book = Books.objects.get(id=1)
+>>> this_author.books.add(this_book)
+>>> this_book.authors.add(this_author)
+>>> Authors.objects.get(id=1).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x0140AC10>, 'id': 1, 'first_name': 'Jane', 'last_name': 'Austen', 'notes': '', 'created_at': datetime.datetime(2019, 8, 20, 20, 59, 42, 951647, tzinfo=<UTC>), 'updated_at': datetime.datetime(2019, 8, 21, 3, 36, 21, 845979, tzinfo=<UTC>)}
+>>> this_author.books.all()
+<QuerySet [<Books object: C # (1)>]>
+>>> this_book.authors.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\abarr\OneDrive\Desktop\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\query.py", line 235, in __repr__
+    return '<QuerySet %r>' % data
+  File "C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj\apps\books_authors_app\models.py", line 18, in __repr__
+    return f"<Authors object: {self.title} ({self.id})>"
+AttributeError: 'Authors' object has no attribute 'title'
+>>> this_book.authors.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\abarr\OneDrive\Desktop\python_stack\my_environments\djangoPy3Env\lib\site-packages\django\db\models\query.py", line 235, in __repr__
+    return '<QuerySet %r>' % data
+  File "C:\Users\abarr\OneDrive\Desktop\python_stack\django\django_intro\book_authors_proj\apps\books_authors_app\models.py", line 18, in __repr__
+    return f"<Authors object: {self.title} ({self.id})>"
+AttributeError: 'Authors' object has no attribute 'title'
+>>> this_author = Authors.objects.get(id=1)
+>>> this_book = Books.objects.get(id=2)
+>>> this_author.books.add(this_book)
+>>> this_book.authors.add(this_author)
+>>> this_author.books.all()
+<QuerySet [<Books object: C # (1)>, <Books object: Java (2)>]>
+>>> this_author = Authors.objects.get(id=2)
+>>> this_book = Books.objects.get(id=1)
+>>> this_book2 = Books.objects.get(id=2)
+>>> this_book3 = Books.objects.get(id=3)
+>>> this_author.books.add(this_book, this_book2, this_book3)
+>>> this_author.save()
+>>> this_author.books.all()
+<QuerySet [<Books object: C # (1)>, <Books object: Java (2)>, <Books object: Python (3)>]>
+>>> this_author=Authors.objects.get(id=3)
+>>> this_book = Books.objects.get(id=1)
+>>> this_book2 = Books.objects.get(id=2)
+>>> this_book3 = Books.objects.get(id=3)
+>>> this_book4 = Books.objects.get(id=4)
+>>> this_author.books.add(this_book, this_book2, this_book3, this_book4)
+>>> this_author.save()
+>>> this_author.books.all()
+<QuerySet [<Books object: C # (1)>, <Books object: Java (2)>, <Books object: Python (3)>, <Books object: PHP (4)>]>
+>>> this_author=Authors.objects.get(id=4)
+>>> this_book = Books.objects.get(id=1)
+>>> this_book2 = Books.objects.get(id=2)
+>>> this_book3 = Books.objects.get(id=3)
+>>> this_book4 = Books.objects.get(id=4)
+>>> this_book5 = Books.objects.get(id=5)
+>>> this_author.books.add(this_book, this_book2, this_book3, this_book4, this_book5)
+>>> this_author.save()
+>>> this_author.books..all()
+  File "<console>", line 1
+    this_author.books..all()
+                      ^
+SyntaxError: invalid syntax
+>>> this_author.books.all()
+<QuerySet [<Books object: C # (1)>, <Books object: Java (2)>, <Books object: Python (3)>, <Books object: PHP (4)>, <Books object: Ruby (5)>]>
+>>> Books.objects.authors.get(id=3)
+
+>>> this_book = Books.objects.get(id=3)
+>>> this_book.authors.all()
+
+>>> this_book = Books.objects.get(id=3)
+>>> Authors.objects.get(this_book)
+
+>>> this_book = Books.objects.get(id=3)
+>>> this_book.authors.all()
+
+>>> this_book = Books.objects.get(id=3)
+>>> this_author= Authors.objects.get(id=1)
+>>> this_author.books.remove(this_book)
+>>> this_author.books.all()
+<QuerySet [<Books object: C # (1)>, <Books object: Java (2)>]>
+>>>

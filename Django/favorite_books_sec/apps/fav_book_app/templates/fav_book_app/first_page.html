@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login & Reg | Success</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'fav_book_app/css/style2.css' %}"> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<body>
+	<div id="wrap">
+	{% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    {% endfor %}
+		</ul>
+	{% endif %}	
+	<div id="greeting">
+		<h2>Welcome, {{user.first_name}} {{user.last_name}}!</h2>
+	</div>
+		<p hidden="status">Successfully {{status}}!</p>
+	<div id="logout">
+		<a href="/logout">Log Out</a>
+	</div>
+	<h2>Add Favorite Book:</h2>
+	<form action="/add_book" method="POST">
+		{% csrf_token %}
+		<label>Title:</label>
+			<input type="text" name="title" class= "form-control"placeholder="Title">
+		<label>Description:</label>
+			<textarea type="text" name="description" class= "form-control" placeholder="Text Area" rows="4" cols="50"></textarea>
+		<input type="submit" value="Add">		
+	</form>
+
+	<h1>All Books:</h1>
+	{% for book in all_books %}
+	<ul>{{book.title}}
+	<li>Added By: {{book.creator.first_name}} {{book.creator.last_name}}</li>
+	</ul>
+	{% endfor %}
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

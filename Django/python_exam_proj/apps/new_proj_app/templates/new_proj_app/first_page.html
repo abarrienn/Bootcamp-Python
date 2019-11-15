@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login & Reg | Success</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'new_proj_app/css/style2.css' %}"> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<div id="wrap">
+	{% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    {% endfor %}
+		</ul>
+	{% endif %}	
+	<div id="greeting">
+		<h2>Welcome, {{user.first_name}} {{user.last_name}}!</h2>
+	</div>
+		<p hidden="status">Successfully {{status}}!</p>
+	<div id="logout">
+		<a href="/logout">Log Out</a>
+	</div>
+	<div id="edit">
+		<a href="/edit/{{user.id}}">Edit My Account</a>
+	</div>
+
+	<div id="allQuotes">
+	{% for quote in all_quotes %}
+	
+		<p>{{quote.author}}: {{quote.quote}}</p>
+		<form action="/my_quotes/{{quote.id}}" method='POST'>
+		 	{% csrf_token %}
+		 	<p>Posted by: {{quote.creator.first_name}} {{quote.creator.last_name}}</p>
+		 	<input type="submit" name="button" value="View My Quotes">
+		 </form>
+	{% if user.id == quote.creator.id %}
+	    <form action="/destroy/{{quote.id}}" method="POST">
+	    {% csrf_token %}
+	    	<input type="submit" name="submit" value="Delete">
+    	</form>
+    
+	{% endif %}
+	
+	{% endfor %}
+	</div>
+	
+	<div id="quoteForm">
+		<h2>Add a Quote!</h2>
+		<form action="/process_quote" method="POST">
+			{% csrf_token %}
+			<label>Author:</label>
+			<input type="text" name="author" class="form-control" placeholder="Name of Author">
+			<label>Quote:</label>
+			<textarea type="text" name="quote" class= "form-control" placeholder="Text Area" rows="4" cols="50"></textarea>
+			<input type="submit" name="submit" value="Submit">
+		</form>
+	</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

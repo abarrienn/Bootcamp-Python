@@ -1,0 +1,41 @@
+*{
+	outline: 0;
+	padding:0;
+	margin: 0;
+	border: 0;
+}
+#wrap{
+	height: 1000px;
+	width: 1000px;
+	display: inline-block;
+}
+#greeting {
+
+	display: inline-block;
+}
+#logout {
+	margin-left: 500px;
+	display: inline-block;
+}
+#edit {
+	margin-left: 828px;
+	display: inline-block;
+}
+
+form {
+	display: inline-block;
+	width: 400px;
+}
+.button {
+	margin-left: 100px;
+}
+#allQuotes {
+	display: inline-block;
+	width: 400px;
+	height: 200px;
+	
+}
+#quoteForm {
+	display: inline-block;
+	vertical-align: top;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Authors</title>
+</head>
+<body>
+
+
+	<h1>{{author.first_name}} {{author.last_name}}</h1>
+	<p>ID:{{author.id}}</p>
+	<p>Notes: {{author.notes}}</p>
+
+<ul>
+{% for book in all_books %}
+{% if author in book.authors.all %}
+
+	<li>{{ book.title }}</li>
+	{% endif %}
+{% endfor %}
+</ul>
+<form>
+
+<p>Books: <select name = "allBooks">
+	{% for book in all_books %}
+	<form action="/add_book_to_list/{{author.id}}" method="POST">
+        <option value = "author" placeholder="Select">{{book.title}}</option>
+        {% endfor %}
+        <input type="submit" name="submit" value="Add">
+    </form>
+</select></p>
+
+</form>
+
+</html>
